@@ -5,36 +5,58 @@ var options=[];
 
 
   const minPasswordLength=8;
-  var userChoicePasswordLength=16;
-  
+  const maxPasswordLength=128;
+
+
 
 // Write password to the #password input
 function writePassword() {
   options=[];
-  
-  if (confirm("lowercase?")) {
-    options.push(0);  
-  }
-  
-  if (confirm("uppercase?")) {
-    options.push(1);  
+
+  var userChoicePasswordLength=0;
+  userChoicePasswordLength=prompt("Length of password (8-128):");
+
+  if (userChoicePasswordLength===null){
+    console.log(userChoicePasswordLength);
+    return;
   }
 
-  if (confirm("numeric?")) {
-    options.push(2);  
-  }
 
-  if (confirm("special?")) {
-    options.push(3);  
+  while (userChoicePasswordLength<minPasswordLength || userChoicePasswordLength>maxPasswordLength){
+    // console.log(userChoicePasswordLength)
+  userChoicePasswordLength=prompt("Length of password (8-128):");
+
+    // userChoicePasswordLength=0;
+    // writePassword();
   }
-  
+console.log(options);
+  while(options.length==0){
+    if (confirm("lowercase?")) {
+      options.push(0);
+    }
+
+    if (confirm("uppercase?")) {
+      options.push(1);
+    }
+
+    if (confirm("numeric?")) {
+      options.push(2);
+    }
+
+    if (confirm("special?")) {
+      options.push(3);
+    }
+    if (options.length==0){
+      alert("Choose at least one character type...")
+    }
+  }
     var password = generatePassword(options,userChoicePasswordLength);
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-  
+
     // passwordText.value = "You didn't select any character types...";
-  
+
 
 }
 
@@ -44,10 +66,10 @@ function generatePassword(Options,UserChoicePasswordLength){
   const numericChars="0123456789";
   const specialChars="!”#$%&’()*+,-./:;<=>?@[\]^_`{|}~";
   const allChars=[lowercaseChars,uppercaseChars,numericChars,specialChars];
-  
+
   var passwordBaseChar="";
 
-  for (var i=0; i<options.length; i++){      
+  for (var i=0; i<options.length; i++){
     passwordBaseChar+=allChars[Options[i]];
   }
 
