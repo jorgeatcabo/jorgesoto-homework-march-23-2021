@@ -8,6 +8,8 @@ The goal of this project is to create a strong password that provides greater se
     * lowercase, uppercase, numeric, and/or special characters.
 * Input should be validated and at least one character type should be selected.
 
+Also was considered to enter only numbers in the length of the password.
+
 After the conditions above are accomplished a password is generated and it is displayed in the page.
 
 # Website Project Image

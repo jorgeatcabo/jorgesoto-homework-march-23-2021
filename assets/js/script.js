@@ -12,7 +12,18 @@ function writePassword() {
   var userChoicePasswordLength = 0
 
   //Asking user for password length
-  userChoicePasswordLength = prompt("Length of password (8-128):")
+
+  let isNumber = false
+  //Loop for verifying the input be a number
+  while (!isNumber) {
+    userChoicePasswordLength = parseInt(prompt("Length of password (8-128):"))
+    if (/^[0-9.,]+$/.test(userChoicePasswordLength)) {
+      isNumber = true
+    } else {
+      isNumber = false
+      alert("The input must be a number...")
+    }
+  }
 
   // In case of user selects cancel, the program ends.
   if (userChoicePasswordLength === null) {
@@ -94,8 +105,7 @@ Are defined some constants with the character types content.
   //Variable that holds the group of character types selected.
   var passwordBaseChar = ""
 
-  
-  //Loop for filling the variable that holds the character types group selected, 
+  //Loop for filling the variable that holds the character types group selected,
   for (var i = 0; i < options.length; i++) {
     passwordBaseChar += allChars[Options[i]]
   }
