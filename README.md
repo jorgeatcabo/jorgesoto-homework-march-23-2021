@@ -9,3 +9,6 @@ The goal of this project is to create a strong password that provides greater se
 * Input should be validated and at least one character type should be selected.
 
 After the conditions above are accomplished a password is generated and it is displayed in the page.
+
+# Website Project Image
+![]
