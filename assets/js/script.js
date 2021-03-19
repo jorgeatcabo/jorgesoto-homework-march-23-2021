@@ -16,18 +16,21 @@ function writePassword() {
   let isNumber = false
   //Loop for verifying the input be a number
   while (!isNumber) {
-    userChoicePasswordLength = parseInt(prompt("Length of password (8-128):"))
-    if (/^[0-9.,]+$/.test(userChoicePasswordLength)) {
+    userChoicePasswordLength = prompt("Length of password (8-128):");
+    // userChoicePasswordLength = parseInt(prompt("Length of password (8-128):"))
+    let validateNumber = parseInt(userChoicePasswordLength)
+    // In case of user selects cancel, the program ends.
+    if (userChoicePasswordLength === null) {
+      console.log("break");
+      return;
+    }
+
+    if (/^[0-9.,]+$/.test(validateNumber)) {
       isNumber = true
     } else {
       isNumber = false
       alert("The input must be a number...")
     }
-  }
-
-  // In case of user selects cancel, the program ends.
-  if (userChoicePasswordLength === null) {
-    return
   }
 
   /* 
