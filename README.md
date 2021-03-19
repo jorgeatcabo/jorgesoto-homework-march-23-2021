@@ -11,4 +11,7 @@ The goal of this project is to create a strong password that provides greater se
 After the conditions above are accomplished a password is generated and it is displayed in the page.
 
 # Website Project Image
-![]
+![](./assets/images/website-image.png)
+
+# Website Link
+[Password Generator](https://jorgeatcabo.github.io/password-generator/)
